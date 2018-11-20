@@ -86,6 +86,18 @@ func main() {
 	var boolVal2 bool = true
 
 	fmt.Println(boolVal1, boolVal2)
+	fmt.Printf("boolVal1 %T boolVal2 %T\n", boolVal1, boolVal2)
 
 	// boolVal1 = boolVal2 // cannot use boolVal2 (type bool) as type myBoolType in assignment
 }
+
+/*
+Output
+
+true true
+types: num1 int, num2 float64, isTrue bool, name string, b uint8, rint32
+sum1 is float 20.1
+sum2 is int 20
+5.1
+5.1
+*/
