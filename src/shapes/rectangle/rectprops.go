@@ -5,6 +5,10 @@ import (
 	utils "shapes/rectangle/rectutils"
 )
 
+func init() {
+	fmt.Println(">>>>>>>>>> rectangle rectprops initialized")
+}
+
 func Area(l, b float64) float64 {
 	return l * b
 }
