@@ -139,4 +139,23 @@ func main() {
 	fmt.Println(person1 == person2) // true
 	person2.age += 1
 	fmt.Println(person1 == person2) // false
+
+	// pointers to a struct
+	personPointer := &Person{
+		"ABC",
+		"DEF",
+		30,
+	}
+	fmt.Println(personPointer)  // &{ABC DEF 30}
+	fmt.Println(*personPointer) // {ABC DEF 30}
+
+	// accessing fields in struct using pointer to struct
+	fmt.Println((*personPointer).fname) // ABC
+	// go provides shorthand accessing for the fields, like regular struct refs
+	fmt.Println(personPointer.fname) // ABC
+
+	(*personPointer).fname = "XYZ1"
+	fmt.Println(personPointer.fname) // XYZ1
+	personPointer.fname = "XYZ2"
+	fmt.Println(personPointer.fname) // XYZ2
 }
