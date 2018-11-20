@@ -1,8 +1,10 @@
 package main
 
-import "fmt"
-import "shapes/rectangle"
-import "shapes/rectangle/rectutils"
+import (
+	"fmt"
+	"shapes/rectangle"
+	"shapes/rectangle/rectutils"
+)
 
 func main() {
 	fmt.Println("Shapes Main Package")
