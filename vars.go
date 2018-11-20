@@ -51,9 +51,16 @@ func main() {
 	// multiple variable declaration and assignment
 	x, y := 20, 30
 
+	// shorthand syntax can only be used
+	// when at least one of the variables in the left side of := is newly declared
+
+	// example
+	// x, y := 100, 200	// no new variables on left side of :=
+	x, z := 100, 200 // x gets assigned to new value 100, z gets declared and assigned to 200
+
 	// e := 20	// e declared and not used
 
-	fmt.Println("a+b+d+e+g+h+x+y", a+b+d+e+g+h+x+y)
+	fmt.Println("a+b+d+e+g+h+x+y+z", a+b+d+e+g+h+x+y+z)
 
 	// ---------------------------------------
 	// special syntax to declare multiple variables of different types
