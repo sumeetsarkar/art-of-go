@@ -80,4 +80,48 @@ func main() {
 	}{"nextlevelmagic", 100, true}
 	fmt.Println(nextlevelmagic)
 	fmt.Println(nextlevelmagic.bool)
+
+	// nested structs
+	type Address struct {
+		street string
+		city   string
+	}
+	type Employee struct {
+		fname   string
+		lname   string
+		age     int
+		address Address
+	}
+	sam := Employee{
+		"Sam",
+		"Williams",
+		28,
+		Address{
+			"32 street",
+			"SFO",
+		},
+	}
+	fmt.Println(sam)
+	fmt.Println(sam.fname, sam.lname, sam.age)
+	fmt.Println(sam.address.street, sam.address.city)
+
+	// Promoted fields
+	type Employee2 struct {
+		fname string
+		lname string
+		age   int
+		Address
+	}
+	jimmy := Employee2{
+		"Jimmy",
+		"Jones",
+		31,
+		Address{
+			"54 Avenue",
+			"LAX",
+		},
+	}
+	// jimmy gets access to street field from jimmy.address
+	// but only if Employee2 does not have a street field
+	fmt.Println(jimmy.street, jimmy.city)
 }
