@@ -12,4 +12,6 @@ func main() {
 	fmt.Println("RED", RED)
 
 	// RED = "RED"	// cannot assign to RED
+
+	// const num2 = math.Pow(2, 8) // const initializer math.Pow(2, 8) is not a constant
 }
