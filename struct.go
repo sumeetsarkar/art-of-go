@@ -124,4 +124,19 @@ func main() {
 	// jimmy gets access to street field from jimmy.address
 	// but only if Employee2 does not have a street field
 	fmt.Println(jimmy.street, jimmy.city)
+
+	// struct comparision
+	person1 := Person{
+		"A",
+		"B",
+		10,
+	}
+	person2 := Person{
+		"A",
+		"B",
+		10,
+	}
+	fmt.Println(person1 == person2) // true
+	person2.age += 1
+	fmt.Println(person1 == person2) // false
 }
