@@ -67,4 +67,15 @@ func main() {
 
 	sum2 := num1 + int(num2)
 	fmt.Println("sum2 is int", sum2)
+
+	fraction := 10.2 / 2
+	fmt.Println(fraction)
+
+	// var numerator = 10.2
+	// var denominator = 2
+	// fmt.Println(numerator / denominator) // (mismatched types float64 and int)
+
+	const numerator = 10.2
+	const denominator = 2
+	fmt.Println(numerator / denominator)
 }
