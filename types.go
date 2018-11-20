@@ -68,6 +68,7 @@ func main() {
 	sum2 := num1 + int(num2)
 	fmt.Println("sum2 is int", sum2)
 
+	// let us see numerical constants used expressions
 	fraction := 10.2 / 2
 	fmt.Println(fraction)
 
@@ -75,7 +76,16 @@ func main() {
 	// var denominator = 2
 	// fmt.Println(numerator / denominator) // (mismatched types float64 and int)
 
+	// Numerical constants can be used in expressions without explicit type conversion
 	const numerator = 10.2
 	const denominator = 2
 	fmt.Println(numerator / denominator)
+
+	type myBoolType bool
+	var boolVal1 myBoolType = true
+	var boolVal2 bool = true
+
+	fmt.Println(boolVal1, boolVal2)
+
+	// boolVal1 = boolVal2 // cannot use boolVal2 (type bool) as type myBoolType in assignment
 }
