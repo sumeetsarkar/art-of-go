@@ -13,3 +13,11 @@ export PATH=$PATH:$(go env GOPATH)/bin
 go install shapes
 shapes
 ```
+
+## To run the independent examples
+
+Example, to run arrays.go
+
+```
+go run arrays.go
+```
