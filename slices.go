@@ -32,4 +32,12 @@ func main() {
 	colors[0] = "R1"
 	colorsSlice[1] = "G1"
 	fmt.Println(colors, colorsSlice) // [R1 G1 B] [R1 G1 B]
+
+	// appending to slices
+	// not allowed with array
+	// append(colors, "C")	// first argument to append must be slice; have [3]string
+	newslice := append(colorsSlice, "C")
+	newslice = append(newslice, "M", "Y")
+
+	fmt.Println(colorsSlice, newslice)
 }
