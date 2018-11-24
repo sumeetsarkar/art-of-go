@@ -101,7 +101,7 @@ func main() {
 	// Functional Programming
 
 	listOfEmployees := EmployeeList{
-		list: []Employee{
+		[]Employee{
 			Employee{"Harry", "Potter", 250000},
 			Employee{"John", "Wick", 300000},
 			Employee{"Agent", "47", 500000},
