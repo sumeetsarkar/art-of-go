@@ -9,6 +9,8 @@ func mul(a, b int) int {
 	return a * b
 }
 
+//----------------------------------------
+
 // Higher Order Functions
 func doubleit(fn func(a, b int) int) func(num int) int {
 	wrapper := func(num int) int {
@@ -30,6 +32,40 @@ func times(fn func(a, b int) int) func(multiplier int) func(num int) int {
 	}
 	return wrapper
 }
+
+//----------------------------------------
+
+// Custom types declared, to demonstrate Functiona Programming in main()
+
+type Employee struct {
+	fname  string
+	lname  string
+	salary float64
+}
+
+type EmployeeList struct {
+	list []Employee
+}
+
+func (el EmployeeList) filter(fn func(e Employee) bool) EmployeeList {
+	filteredList := []Employee{}
+	for _, v := range el.list {
+		if fn(v) == true {
+			filteredList = append(filteredList, v)
+		}
+	}
+	return EmployeeList{
+		filteredList,
+	}
+}
+
+func (el EmployeeList) printall() {
+	for _, v := range el.list {
+		fmt.Println(v.fname, v.lname, v.salary)
+	}
+}
+
+//----------------------------------------
 
 func main() {
 	// Anonymous Functions
@@ -58,4 +94,25 @@ func main() {
 
 	times5 := times(mul)(5)
 	fmt.Println(times5(100)) // 500
+
+	times8 := times(mul)(8)
+	fmt.Println(times8(100)) // 800
+
+	// Functional Programming
+
+	listOfEmployees := EmployeeList{
+		list: []Employee{
+			Employee{"Harry", "Potter", 250000},
+			Employee{"John", "Wick", 300000},
+			Employee{"Agent", "47", 500000},
+		},
+	}
+	fmt.Println("\nPrint all employees........")
+	listOfEmployees.printall()
+
+	fmt.Println("\nPrint all employees........ with salary > 400000")
+	resultEmployees := listOfEmployees.filter(func(e Employee) bool {
+		return e.salary > 400000
+	})
+	resultEmployees.printall()
 }
