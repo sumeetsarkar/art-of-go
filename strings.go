@@ -8,6 +8,14 @@ import (
 // In go, string is a slice of bytes.
 // strings are created by enclosing content within ""
 
+func change(value string) {
+	value = "value is changed"
+}
+
+func changeByPointer(value *string) {
+	*value = "value is changed"
+}
+
 func main() {
 	// string creation
 	greet := "Hello world"
@@ -122,4 +130,11 @@ func main() {
 
 	result := append([]rune(greet), '1', '2')
 	fmt.Println(string(result)) // output: Hello world est12
+
+	greetnew := "greet before change"
+	change(greetnew)
+	fmt.Println(greetnew)
+
+	changeByPointer(&greetnew)
+	fmt.Println(greetnew)
 }
