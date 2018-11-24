@@ -64,4 +64,46 @@ func main() {
 	// copy the contents from the slice to the newly declaraed array
 	copy(top3arr, sliceofcountires)
 	fmt.Println(top3arr) // [India USA UK]
+
+	// capacity vs length
+	sportsslice := []string{
+		"football",
+		"cricket",
+		"basketball",
+		"volleyball",
+		"handball",
+		"hockey",
+		"boxing",
+		"wrestling",
+		"tennis",
+		"badminton",
+	}
+	// The capacity of a slice is the number of elements in the underlying array,
+	// counting from the FIRST element in the slice.
+	fmt.Println("capacity:", cap(sportsslice), "length:", len(sportsslice), sportsslice)
+	// capacity: 10 length: 10 [football cricket basketball volleyball handball hockey boxing wrestling tennis badminton]
+
+	sportsslice = sportsslice[:8]
+	fmt.Println("capacity:", cap(sportsslice), "length:", len(sportsslice), sportsslice)
+	// capacity: 10 length: 8 [football cricket basketball volleyball handball hockey boxing wrestling]
+
+	sportsslice = sportsslice[:6]
+	fmt.Println("capacity:", cap(sportsslice), "length:", len(sportsslice), sportsslice)
+	// capacity: 10 length: 6 [football cricket basketball volleyball handball hockey]
+
+	sportsslice = sportsslice[:4]
+	fmt.Println("capacity:", cap(sportsslice), "length:", len(sportsslice), sportsslice)
+	// capacity: 10 length: 4 [football cricket basketball volleyball]
+
+	sportsslice = sportsslice[2:]
+	fmt.Println("capacity:", cap(sportsslice), "length:", len(sportsslice), sportsslice)
+	// Note: capacity is counting from the FIRST element in the slice.
+	// since, we provide a start index, which is not 0, the count begins from 2 - 10,
+	// resulting capacity to be 10 - 2 = 8
+	// the slice however was of len 4, now which becomes 2
+	// capacity: 8 length: 2 [basketball volleyball]
+
+	sportsslice = sportsslice[2:]
+	fmt.Println("capacity:", cap(sportsslice), "length:", len(sportsslice), sportsslice)
+	// capacity: 6 length: 0 []
 }
