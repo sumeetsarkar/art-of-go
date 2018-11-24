@@ -115,4 +115,11 @@ func main() {
 	colorOrangeSlice[0] = 'R'
 
 	fmt.Println(colorOrange, string(colorOrangeSlice)) // Outputs: Orange Rrange
+
+	// string concatenation
+	greet += " test"
+	fmt.Println(greet) // output: Hello world test
+
+	result := append([]rune(greet), '1', '2')
+	fmt.Println(string(result)) // output: Hello world est12
 }
