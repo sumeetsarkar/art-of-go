@@ -42,7 +42,7 @@ type Address struct {
 }
 
 func main() {
-	person := &Person{
+	person1 := &Person{
 		"Sumeet",
 		"Sarkar",
 		28,
@@ -53,9 +53,15 @@ func main() {
 		},
 	}
 	// Note: small case fields, unexported fields will not be marshalled
-	b, err := json.MarshalIndent(person, "", "\t")
+	// Marshall Person struct to JSON string
+	b, err := json.MarshalIndent(person1, "", "\t")
 	if err != nil {
 		panic("Error marshalling struct person")
 	}
 	fmt.Println(string(b))
+
+	// Unmarshall the JSON to Person struct
+	var person2 Person
+	json.Unmarshal(b, &person2)
+	fmt.Println(person2) // {Sumeet Sarkar 28 {22nd Street Bangalore 560001}}
 }
