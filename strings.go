@@ -129,7 +129,7 @@ func main() {
 	fmt.Println(greet) // output: Hello world test
 
 	result := append([]rune(greet), '1', '2')
-	fmt.Println(string(result)) // output: Hello world est12
+	fmt.Println(string(result)) // output: Hello world test12
 
 	greetnew := "greet before change"
 	change(greetnew)
