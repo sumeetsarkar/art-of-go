@@ -133,4 +133,40 @@ func main() {
 	// not allowed
 	// v := data1.(type)	// use of .(type) outside type switch
 	// fmt.Println(v)
+
+	person1 := Person{"Sumeet", "Sarkar"}
+	// var md Metadata = person1	// Person does not implement Metadata (info method has pointer receiver)
+	var md Metadata = &person1
+	md.info()
+
+	// However for methods the relaxation of interchangeably using pointer vs values to call methods is applied
+	person1.pointerReceiver()
+	(&person1).pointerReceiver()
+	person1.valueReceiver()
+	(&person1).valueReceiver()
+
+	// But as per concept of value and point receivers, only the method with pointer receiver changes the data
+	person1.info() // Sumeet 2 Sarkar
+}
+
+type Metadata interface {
+	info()
+}
+
+type Person struct {
+	fname, lname string
+}
+
+func (p *Person) info() {
+	fmt.Println(p.fname, p.lname)
+}
+
+func (p *Person) pointerReceiver() {
+	p.fname = "Sumeet 2"
+	fmt.Println("called from pointer receiver")
+}
+
+func (p Person) valueReceiver() {
+	p.lname = "Sarkar 2"
+	fmt.Println("called from value receiver")
 }
